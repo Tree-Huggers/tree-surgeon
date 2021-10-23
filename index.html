@@ -25,13 +25,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center">
         <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">
-                LOGO/
-                TREE HUGGERS
-            </a> -->
             <a class="navbar-brand" href="#">
-                <!-- <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
-                
                 TREE HUGGERS
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,18 +36,39 @@
               <li class="nav-item">
                 <a class="nav-link active fw-bold fs-5" aria-current="page" href="#">Home</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link disabled">About Us</a>
-              </li> -->
             </ul>
              
             <button type="button" class="btn btn-outline-light fw-bold border-3 mx-3 rounded-pill px-4" id="enter_email" data-bs-toggle="modal" data-bs-target="#exampleModal1">
               Enter Email
             </button>
+            <button type="button" id="allownotify" class="btn btn-outline-light fw-bold border-3 mx-3 rounded-pill px-4" id="enter_email" data-bs-toggle="modal" data-bs-target="#exampleModal2"  style="display: none;">
+              Allow notification
+            </button>
             <button type="button" class="btn btn-outline-light fw-bold border-3 mx-3 rounded-pill px-4" id="Signout" style="display: none;">
               Sign out
             </button>
             
+
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="m-5">
+                    <h2 class="heading text-center mx-auto my-4">Allow Notification Permissions</h2>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-4 ">
+                          <input type="email" id="emailToDb" class="form-control rounded-pill px-3" id="email" aria-describedby="emailHelp" placeholder="NA" disabled>
+                        </div>
+                        <div class="mb-4 d-grid gap-2 col-6 mx-auto">
+                          <button type="submit" class="btn btn-primary graident rounded-pill">Allow</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
@@ -69,6 +84,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </nav>
@@ -112,7 +128,6 @@
                       <td>Water Level</td>
                       <td>20 cc/&#x33A1;</td>
                       <td>40 cc/&#x33A1;</td>
-                      <!-- <td colspan="2">Larry the Bird</td> -->
                     </tr>
                   </tbody>
                 </table>
@@ -128,8 +143,12 @@
 
 <script src="http://websdk.sawolabs.com/sawo.min.js"></script>    
                     <script>
-                        let email="failed";
-                        if(email=="failed"){
+                        let email;
+                        if(email !== undefined){
+                          run();
+                        }
+                        console.log(email);
+                        if(email===undefined){
                           var config = {
                               // should be same as the id of the container created on 3rd step
                               containerID: "sawo-container",
@@ -147,7 +166,10 @@
                                   let s=document.getElementById("success_msg");
                                   s.style.display="block";
                                   let r=document.getElementById("sawo-container");
-                                  r.style.display=none;
+                                  r.style.display="none";
+                                  let F=document.getElementById("emailToDb");
+                                  F.placeholder=payload.identifier;
+
                               },
                           };
                           var sawo = new Sawo(config);
@@ -158,6 +180,8 @@
                           signout.style.display="inline-block";
                           let Enteremail=document.getElementById("enter_email");
                           Enteremail.style.display="none";
+                          let allow=document.getElementById("allownotify");
+                          allow.style.display="block";
                         }
                         document.getElementById("Signout").addEventListener("click",()=>{
                           let signout=document.getElementById("Signout");
@@ -167,6 +191,9 @@
                           email="failed";
                           let s=document.getElementById("success_msg");
                           s.style.display="none";
+                          let allow=document.getElementById("allownotify");
+                          allow.style.display="none";
+                          
                         })
                     </script>
 </body>
