@@ -61,33 +61,6 @@ void setup(){
   });
  
   server.begin();
-}
-
-//Time to open a serial connection so we can start to send data
-void setup() {
-  
-  Serial.begin(115200);  
-  if(!SPIFFS.begin(true)){
-      Serial.println("Error: Sorry something went pear shaped! ");
-      return;
-  else:
-  	
-    File file = SPIFFS.open("/website");
-      WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Connecting to WiFi..");
-  }
-
-  Serial.println(WiFi.localIP());
-
-  server.on("/html", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/test_file.html", "text/html");
-  });
-
-  server.begin();
-}
 
 void loop(){}
 
