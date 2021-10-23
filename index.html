@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Huggers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    *{
+      box-sizing: border-box !important;
+    }
+    .hover-menu:hover{
+      border-bottom: 2px solid white;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">
+                LOGO/
+                TREE HUGGERS
+            </a> -->
+            <a class="navbar-brand" href="#">
+                <!-- <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"> -->
+                
+                TREE HUGGERS
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto hover-menu" style="height: 50px;">
+              <li class="nav-item">
+                <a class="nav-link active fw-bold fs-5" aria-current="page" href="#">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled">About Us</a>
+              </li> -->
+            </ul>
+             
+            <button type="button" class="btn btn-outline-light fw-bold border-3 mx-3 rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+              Login
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="m-5">
+                    <h2 class="heading text-center mx-auto my-4">Sign in</h2>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-4 ">
+                          <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                          <input type="email" class="form-control rounded-pill px-3" id="email" aria-describedby="emailHelp" placeholder="Your Email">
+                          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-4 mt-2">
+                          <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                          <input type="password" class="form-control rounded-pill px-3" id="exampleInputPassword1" placeholder="Your Password">
+                        </div>
+                        <div class="mb-4 form-check">
+                          <input type="checkbox" class="form-check-input rounded-pill" id="exampleCheck1">
+                          <label class="form-check-label mx-2" for="exampleCheck1">Remember me</label>
+                        </div>
+                        <div class="mb-4 d-grid gap-2 col-6 mx-auto"><button type="submit" class="btn btn-primary graident rounded-pill">SIGN IN</button></div>
+  
+                        <div class="form-check d-flex justify-content-center mb-5">
+                          <p class="form-check-label" for="exampleCheck1"><a class="text-primary text-decoration-none">Forgot password?</a></p>
+                        </div>
+                        <div class="form-check d-flex justify-content-center mb-0 pb-0">
+                          <p class="form-check-label" for="exampleCheck1">
+                            <a href="" class="text-primary text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Create an account</a></p>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <button type="button" class="btn btn-outline-light fw-bold border-3 mx-3 rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Sign Up
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="m-5">
+                    <h2 class="heading text-center mx-auto my-4">Sign Up</h2>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-4">
+                          <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                          <input type="text" class="form-control rounded-pill px-3" id="name" aria-describedby="emailHelp" placeholder="Your Full Name">
+                        </div>
+                        <div class="mb-4">
+                          <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                          <input type="email" class="form-control rounded-pill px-3" id="email" aria-describedby="emailHelp" placeholder="Your Email">
+                          <div id="emailHelp" class="form-text px-3">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-4">
+                          <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                          <input type="password" class="form-control rounded-pill px-3" id="exampleInputPassword1" placeholder="Your Password">
+                        </div>
+                        <div class="mb-4 form-check d-flex justify-content-center">
+                          <input type="checkbox" class="form-check-input rounded-pill" id="exampleCheck1">
+                          <label class="form-check-label mx-2" for="exampleCheck1">I read and agree to <a class="text-primary text-decoration-none">Terms & Conditions</a></label>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto"><button type="submit" class="btn btn-primary graident rounded-pill">CREATE ACCOUNT</button></div>
+  
+                        <div class="mb-4 form-check d-flex justify-content-center my-5">
+                          <p class="form-check-label" for="exampleCheck1">Already have an account? 
+                            <a href="" class="text-primary text-decoration-none pe-auto"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Sign in</a></p>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="card m-5 border border-primary" style="border-radius: 30px !important;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img style="border-radius: 30px !important; height: 100%;" src="https://images.unsplash.com/photo-1471180625745-944903837c22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body m-3 d-flex flex-column justify-content-between" style="height: 90%;">
+                <h5 class="card-title">Data From Arduino</h5>
+                <p class="card-text">Few descriptions and Details if needed
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae quo et, omnis maiores rerum reiciendis cupiditate sed tenetur modi earum fugit dignissimos maxime blanditiis amet quod, nisi voluptas temporibus. Placeat impedit aspernatur quod enim.
+                </p>
+                <table class="table table-hover">
+                  <thead class=" table-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Data</th>
+                      <th scope="col">Current values</th>
+                      <th scope="col">Needed</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Soil moisture</td>
+                      <td>NA</td>
+                      <td>17.58</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Temperature</td>
+                      <td>35&deg;C</td>
+                      <td>30&deg;C</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Water Level</td>
+                      <td>20 cc/&#x33A1;</td>
+                      <td>40 cc/&#x33A1;</td>
+                      <!-- <td colspan="2">Larry the Bird</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="card-text text-end px-3"><small class="text-primary fw-bold">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</html>
