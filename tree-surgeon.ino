@@ -11,11 +11,18 @@ The SPIFF library (SPI Flash File System) is utilised to do this
 //connected to water level sensor signal
 #define SIGNAL_PIN A0
 
+//temp + humidity
+#define DHTPIN 21
+//declare dht11 type of temp sensor
+#define DHTTYPE DHT11
 
 
+#include "DHT.h"
 #include "WiFi.h"
-#include "AsyncTCP.h"
 #include "SPIFFS.h"
+#include "AsyncTCP.h"
+#include <FS.h>
+#include <ESPAsyncWebServer.h>
 
 //Finding IP address
 const char* ssid = "VM4659135";
@@ -35,18 +42,18 @@ String processor(const String& var)
   Serial.println(var);
  
   if(var == "STATE1")
-    return "value";
+    return "moisture_level";
     
-  /*
-  if(var == "STATE1")
-    return "SENSOR VALUES";
+  
+  if(var == "STATE2")
+    return "temperature";
     
-  if(var == "STATE1")
-    return "SENSOR VALUES";
+  if(var == "STATE3")
+    return "water_level";
     
-  if(var == "STATE1")
-    return "SENSOR VALUES";
-  */
+ /* if(var == "PLACEHOLDER")
+    return "n/a";
+ */
  
   return String();
 }
@@ -82,18 +89,30 @@ void setup(){
 void loop(){
   
   //water level
+  int water_level;
   digitalWrite(POWER_PIN, HIGH);  
   delay(100);                     
   value = analogRead(SIGNAL_PIN); 
   digitalWrite(POWER_PIN, LOW);   
    Serial.print("Water Level: ");
-  Serial.println(value);
+  Serial.println(water_level);
   delay(1000);
 
   //moisture level
-  
+  float moisture_level = analogRead(MOISTURE_PIN);
+  Serial.println(moisture_level);
+  delay(10000);
 
   //temp + humidity
-
+  // read humidity
+  float humidity  = dht.readHumidity();
   
+  // making sure that no errors occured
+  if (isnan(humidity)) {
+    Serial.println("Error occured");
+  } else {
+    Serial.print("Humidity: ");
+    Serial.println(humidity);
+    Serial.print("%");
   }
+ }
